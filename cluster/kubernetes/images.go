@@ -150,10 +150,7 @@ func (c *Cluster) ImagesToFetch() registry.ImageCreds {
 
 			// Merge creds
 			for imageID, creds := range imageCreds {
-				existingCreds, ok := allImageCreds[imageID]
-				if ok {
-					existingCreds.Merge(creds)
-				} else {
+				if _, ok := allImageCreds[imageID]; !ok {
 					allImageCreds[imageID] = creds
 				}
 			}
