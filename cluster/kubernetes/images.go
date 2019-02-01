@@ -148,7 +148,6 @@ func (c *Cluster) ImagesToFetch() registry.ImageCreds {
 				mergeCredentials(logger.Log, c.includeImage, c.client, ns.Name, podController.podTemplate, imageCreds, seenCreds)
 			}
 
-			// Merge creds
 			for imageID, creds := range imageCreds {
 				if _, ok := allImageCreds[imageID]; !ok {
 					allImageCreds[imageID] = creds
